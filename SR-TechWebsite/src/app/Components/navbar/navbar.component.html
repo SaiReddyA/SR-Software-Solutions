@@ -1,0 +1,50 @@
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" routerLink="/">SR Software Technologies</a>
+  
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#mainNavbar"
+        aria-controls="mainNavbar"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+  
+      <div class="collapse navbar-collapse" id="mainNavbar">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/courses">Courses</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/about">About</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" routerLink="/login">Login</a>
+          </li>
+          <!-- <li class="nav-item">
+              <mat-icon class="nav-link" (click)="toggleTheme()" [attr.aria-label]="isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode'">{{ isDarkTheme ? 'dark_mode' : 'light_mode' }}</mat-icon>
+          </li> -->
+          <li class="nav-item d-flex align-items-center">
+            <button
+              mat-icon-button
+              (click)="toggleTheme()"
+              [attr.aria-label]="isDarkTheme ? 'Switch to light mode' : 'Switch to dark mode'"
+              
+              class="nav-link p-0 border-0 bg-transparent"
+            >
+              <mat-icon>{{ isDarkTheme ? 'light_mode' : 'dark_mode' }}</mat-icon>
+            </button>
+          </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+  
