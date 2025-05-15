@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { Common_Modules, Material_Modules } from '../../app.config';
 
 @Component({
@@ -11,9 +11,21 @@ import { Common_Modules, Material_Modules } from '../../app.config';
 export class NavbarComponent {
 
   isDarkTheme = false;
-
+ isNavbarCollapsed = true;
   toggleTheme() {
     this.isDarkTheme = !this.isDarkTheme;
     document.body.classList.toggle('dark-theme', this.isDarkTheme);
+  }
+
+  collapseNavbar() {
+    if (window.innerWidth < 992) {
+      this.isNavbarCollapsed = true;
+    }
+  }
+@HostListener('window:resize', ['$event'])
+  onResize(event: Event) {
+    if (window.innerWidth >= 992) {
+      this.isNavbarCollapsed = true;
+    }
   }
 }
