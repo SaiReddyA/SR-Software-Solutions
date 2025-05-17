@@ -29,4 +29,6 @@
   .navbar-brand {
     color: var(--nav-text) !important;
   }
-  
+  .title{
+  color: var(--primary);
+}

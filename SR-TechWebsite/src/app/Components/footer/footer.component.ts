@@ -10,4 +10,5 @@ import { Common_Modules, Material_Modules } from '../../app.config';
 })
 export class FooterComponent {
 gmail = 'Saireddy.1.1919@gmail.com'
+year = new Date().getFullYear()
 }

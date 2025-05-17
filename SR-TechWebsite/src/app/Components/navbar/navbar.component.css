@@ -1,0 +1,8 @@
+ .dark-image {
+  filter: invert(0); 
+}
+
+
+.light-image {
+  filter: invert(1); 
+}

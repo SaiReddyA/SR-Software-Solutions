@@ -6,6 +6,7 @@ import { TestimonialComponent } from './Components/testimonial/testimonial.compo
 import { ContactComponent } from './Components/contact/contact.component';
 import { InstructerComponent } from './Components/instructer/instructer.component';
 import { CourseEnrollComponent } from './Components/course-enroll/course-enroll.component';
+import { TermsndConditionsComponent } from './Components/termsnd-conditions/termsnd-conditions.component';
 
 export const routes: Routes = [
     {path:'', component:HomeComponent},
@@ -16,4 +17,5 @@ export const routes: Routes = [
     {path:'contact', component:ContactComponent},
     {path:'testimonial', component:TestimonialComponent},
     {path:'instructer', component:InstructerComponent},
+    {path:'terms-conditions', component:TermsndConditionsComponent},
 ];

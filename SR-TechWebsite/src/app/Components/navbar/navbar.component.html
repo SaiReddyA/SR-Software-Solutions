@@ -1,10 +1,22 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark py-1">
   <div class="container-fluid">
-    <!-- <a class="navbar-brand" routerLink="/">SR Software Solutions</a> -->
-       <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
-            <p class="m-0 fw-bold" style="font-size: 25px;"><img src="img/SRLogo.png" alt="" height="50px">SR<span
-                    style="color: #fb873f;">Software Solutions</span></p>
-        </a>
+       <!-- <a href="index.html" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+            <p class="m-0 fw-bold" style="font-size: 25px;"><img [ngClass]="isDarkTheme ? 'dark-image' : 'light-image'"src="img/SRLogoPng.png" alt="" height="50px">
+              SR <span style="color: #fb873f;"> Software Solutions</span></p>
+        </a> -->
+         <a href="/home" class="navbar-brand d-flex align-items-center px-4 px-lg-5">
+    
+    <img 
+      [ngClass]="isDarkTheme ? 'dark-image' : 'light-image'" 
+      src="img/SRLogoPng.png" 
+      alt="Logo" 
+      height="50px" class="me-2"   />
+
+    <!-- Text aligned with image -->
+    <span class="fw-bold fs-4">
+      SR <span class="title">Software Solutions</span>
+    </span>
+  </a>
     <button
       class="navbar-toggler"
       type="button"

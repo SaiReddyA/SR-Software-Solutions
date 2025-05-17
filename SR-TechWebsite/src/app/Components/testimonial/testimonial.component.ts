@@ -1,7 +1,9 @@
-import { Component, ElementRef, Inject, PLATFORM_ID } from '@angular/core';
+import { Component, ElementRef, inject, Inject, PLATFORM_ID } from '@angular/core';
 import { Common_Modules, Material_Modules } from '../../app.config';
 import { isPlatformBrowser } from '@angular/common';
 import { FooterComponent } from '../footer/footer.component';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { SRTechService } from '../../Services/srtech.service';
 
 @Component({
   selector: 'app-testimonial',
@@ -12,15 +14,52 @@ import { FooterComponent } from '../footer/footer.component';
 })
 export class TestimonialComponent {
 
-   constructor(private elRef: ElementRef) {}
-ngAfterViewInit(): void {
-    // Remove ngSkipHydration if it exists
-    const hostElement = this.elRef.nativeElement;
-    if (hostElement.hasAttribute('ngskiphydration')) {
-      hostElement.removeAttribute('ngskiphydration');
-      console.log('Removed ngSkipHydration attribute');
-    }
+    fb = inject(FormBuilder);
+testimonials:any[] = []
+  reviewForm = this.fb.group({
+    image: this.fb.control<File | null>(null, Validators.required),
+    name: ['', Validators.required],
+    review: ['', [Validators.required, Validators.minLength(10)]]
+  });
 
-    // Initialize Owl Carousel or other DOM logic here
+  imagePreview: string | ArrayBuffer | null = null;
+  showForm = false;
+constructor(private service:SRTechService){
+     this.LoadReviews()
   }
+  onImageUpload(event: Event) {
+    const file = (event.target as HTMLInputElement)?.files?.[0];
+    if (file) {
+    this.reviewForm.get('image')?.setValue(file); // ✅ safe way
+      const reader = new FileReader();
+      reader.onload = () => (this.imagePreview = reader.result);
+      reader.readAsDataURL(file);
+    }
+  }
+
+  toggleForm() {
+    this.showForm = !this.showForm;
+  }
+
+  onSubmit() {
+    if (this.reviewForm.valid) {
+      console.log('Review submitted:', this.reviewForm.value);
+      alert('Thank you for your review!');
+      this.reviewForm.reset();
+      this.imagePreview = null;
+      this.showForm = false;
+    }
+  }
+
+  LoadReviews(){
+      this.service.LoadReviews().subscribe({
+            next:(res)=>{
+                this.testimonials = res
+            }
+          })
+  }
+ 
+
+
+
 }
