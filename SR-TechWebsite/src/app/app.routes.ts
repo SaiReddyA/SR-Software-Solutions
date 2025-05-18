@@ -18,4 +18,5 @@ export const routes: Routes = [
     {path:'home/instructer', component:InstructerComponent},
     {path:'home/terms-conditions', component:TermsndConditionsComponent},
     { path: '', redirectTo: '/home', pathMatch: 'full' },
+    { path: '**', redirectTo: '/home', pathMatch: 'full' },
 ];
