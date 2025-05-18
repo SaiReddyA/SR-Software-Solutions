@@ -9,13 +9,13 @@ import { CourseEnrollComponent } from './Components/course-enroll/course-enroll.
 import { TermsndConditionsComponent } from './Components/termsnd-conditions/termsnd-conditions.component';
 
 export const routes: Routes = [
-    {path:'', component:HomeComponent},
     {path:'home', component:HomeComponent},
-    {path:'about', component:AboutComponent},
-    {path:'courses', component:CoursesComponent},
-    {path:'course-enroll', component:CourseEnrollComponent},
-    {path:'contact', component:ContactComponent},
-    {path:'testimonial', component:TestimonialComponent},
-    {path:'instructer', component:InstructerComponent},
-    {path:'terms-conditions', component:TermsndConditionsComponent},
+    {path:'home/about', component:AboutComponent},
+    {path:'home/courses', component:CoursesComponent},
+    { path: 'home/courses/course-enroll/:coursename', component: CourseEnrollComponent },
+    {path:'home/contact', component:ContactComponent},
+    {path:'home/testimonial', component:TestimonialComponent},
+    {path:'home/instructer', component:InstructerComponent},
+    {path:'home/terms-conditions', component:TermsndConditionsComponent},
+    { path: '', redirectTo: '/home', pathMatch: 'full' },
 ];

@@ -2,6 +2,7 @@ import { Component } from '@angular/core';
 import { Common_Modules, Material_Modules } from '../../app.config';
 import { FooterComponent } from '../footer/footer.component';
 import { Course, SRTechService } from '../../Services/srtech.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -12,7 +13,7 @@ import { Course, SRTechService } from '../../Services/srtech.service';
 })
 export class CoursesComponent {
 
-  constructor(private service:SRTechService){
+  constructor(private service:SRTechService, private router:Router){
      this.LoadCourses()
   }
   courses:Course[] = []
@@ -23,5 +24,7 @@ export class CoursesComponent {
       }
     })
   }
-
+NavigateTo(url:any){
+  this.router.navigate(['/home/courses/course-enroll/' + url])
+}
 }

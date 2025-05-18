@@ -32,3 +32,9 @@
   .title{
   color: var(--primary);
 }
+.light-image {
+  filter: invert(1); 
+}
+.enroll{
+  cursor: pointer;
+}

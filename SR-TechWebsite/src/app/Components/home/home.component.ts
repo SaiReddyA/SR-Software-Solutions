@@ -2,6 +2,7 @@ import { AfterViewInit, Component } from '@angular/core';
 import { Common_Modules,Material_Modules } from '../../app.config';
 import { FooterComponent } from '../footer/footer.component';
 import { Course, SRTechService } from '../../Services/srtech.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-home',
@@ -25,7 +26,7 @@ ngAfterViewInit() {
   // }
 }
 
-constructor(private service:SRTechService){
+constructor(private service:SRTechService, private router:Router){
    this.LoadCourses()
    this.LoadReviews()
 }
@@ -44,6 +45,10 @@ this.service.LoadReviews().subscribe({
         this.testimonials = res
     }
   })
+}
+
+NavigateTo(url:any){
+  this.router.navigate(['/home/courses/course-enroll/' + url])
 }
  
 }

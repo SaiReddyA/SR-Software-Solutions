@@ -15,7 +15,7 @@
         <p class="lead"> Personalized training from industry expert in .NET Core, ADO.NET, Dapper, Entity Framework, Angular, and more.
     Start your transformation today!</p>
         <div class="mt-4">
-          <a class="btn btn-info text-white me-3 animated slideInLeft" href="/about">Read
+          <a class="btn btn-info text-white me-3 animated slideInLeft" href="/home/about">Read
             More</a>
           <a class="btn btn-info text-white  animated slideInRight" href="#">Join
             Now</a>
@@ -31,7 +31,7 @@
         <p class="lead">SR Software Solutions offers practical, project-based learning with flexible timings, career support, and mock interviews for job readiness.</p>
         <!-- Buttons with delayed animation -->
         <div class="mt-4">
-          <a class="btn btn-info text-white me-3 animated slideInLeft" href="/about">
+          <a class="btn btn-info text-white me-3 animated slideInLeft" href="/home/about">
             Read More
           </a>
           <a class="btn btn-info text-white animated slideInRight" href="#">
@@ -149,7 +149,7 @@
                     </div>
                     </div>
 
-                    <a class="btn text-light py-3 px-5 mt-2" href="/about">Read More</a>
+                    <a class="btn text-light py-3 px-5 mt-2" href="/home/about">Read More</a>
 
                 </div>
             </div>
@@ -666,14 +666,14 @@
                         <small class="flex-fill text-left p-2 px-2">
                         <i class="fa fa-clock me-2"></i> {{ course.duration }}
                         </small>
-                        <small class="py-1 px-2 fw-bold fs-6 text-center">
+                        <!-- <small class="py-1 px-2 fw-bold fs-6 text-center">
                         ₹ {{ course.price }}
-                        </small>
+                        </small> -->
                         <small
                         class="text-primary py-1 px-2 fw-bold fs-6"
                         style="float:right;"
                         >
-                        <a href="#">Enroll Now </a>
+                        <a (click)="NavigateTo(course.url)" class="enroll">Enroll Now </a>
                         <i class="fa fa-chevron-right me-2 fs-10"></i>
                         </small>
                     </div>
@@ -685,7 +685,7 @@
         </div>
     </div>
     <div class="container text-center">
-        <a class="btn py-3 px-5 mt-2 mb-5" href="/courses">All Courses</a>
+        <a class="btn py-3 px-5 mt-2 mb-5" href="/home/courses">All Courses</a>
     </div>
     <!-- Courses End -->
 
@@ -709,7 +709,7 @@
                         <p class="mb-4 text-white">Instructors from around the world teach millions of learners on Other Sites. We provide
                             the tools and skills to teach what you love.</p>
     
-                        <a class="btn py-3 mt-2" style="color: #fb873f;" href="/instructer">Start Teaching Today</a>
+                        <a class="btn py-3 mt-2" style="color: #fb873f;" href="/home/instructer">Start Teaching Today</a>
                     </div>
     
                 </div>
@@ -722,7 +722,7 @@
     <div class="container-xxl py-5 category">
     <div class="container">
         <div class="text-center wow fadeInUp" data-wow-delay="0.1s">
-            <h1 class="mb-5">Frequently Asked Questions</h1>
+            <h1 class="mb-5 title">Frequently Asked Questions</h1>
         </div>
         <div class="row g-2">
             <div class="col-12">

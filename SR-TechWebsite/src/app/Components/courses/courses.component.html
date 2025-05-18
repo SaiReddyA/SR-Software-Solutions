@@ -6,7 +6,7 @@
                 <h1 class="display-3 text-white animated slideInDown">Courses</h1>
                 <nav aria-label="breadcrumb">
                     <ol class="breadcrumb justify-content-center">
-                        <li class="breadcrumb-item"><a class="text-white" href="">Home</a></li>
+                        <li class="breadcrumb-item"><a class="text-white" href="/home">Home</a></li>
                         <li class="breadcrumb-item text-white active" aria-current="page">Courses</li>
                     </ol>
                 </nav>
@@ -113,7 +113,7 @@
                             ₹ {{ course.price }}
                         </small>
                         <small class="text-primary py-1 px-2 fw-bold fs-6" style="float:right;">
-                            <a href="#">Enroll Now </a>
+                            <a (click)="NavigateTo(course.url)" class="enroll">Enroll Now </a>
                             <i class="fa fa-chevron-right me-2 fs-10"></i>
                         </small>
                     </div>
