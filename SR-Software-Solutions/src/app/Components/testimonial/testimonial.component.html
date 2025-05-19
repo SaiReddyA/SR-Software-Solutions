@@ -1,0 +1,121 @@
+<!-- Header Start -->
+<div class="container-fluid bg-primary py-5 mb-5 page-header">
+    <div class="container py-5">
+        <div class="row justify-content-center">
+            <div class="col-lg-10 text-center">
+                <h1 class="display-3 text-white animated slideInDown">Student Reviews</h1>
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb justify-content-center">
+                        <li class="breadcrumb-item"><a class="text-white cur" (click)="this.navigation.navigateTo('/home')">Home</a></li>
+                        <li class="breadcrumb-item text-white active" aria-current="page">Reviews</li>
+                    </ol>
+                </nav>
+            </div>
+        </div>
+    </div>
+</div>
+<!-- Header End -->
+
+
+<!-- Testimonial Start -->
+
+<div id="testimonialCarousel" class="carousel slide carousel-dark" data-bs-ride="carousel">
+  <div class="carousel-inner">
+    <div
+      *ngFor="let testimonial of testimonials; let i = index"
+      class="carousel-item"
+      [ngClass]="{ active: i === 0 }"
+    >
+      <div class="testimonial-item text-center">
+        <img
+          class="border rounded-circle p-2 mx-auto mb-3"
+          [src]="testimonial.image"
+          style="width: 80px; height: 80px"
+          alt="Student testimonial"
+        />
+        <h5 class="mb-0">{{ testimonial.name }}</h5>
+        <div class="testimonial-text bg-light text-center p-4">
+          <p class="mb-0">{{ testimonial.text }}</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <button class="carousel-control-prev" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="prev">
+    <span class="carousel-control-prev-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+    <span class="visually-hidden">Previous</span>
+  </button>
+  <button class="carousel-control-next" type="button" data-bs-target="#testimonialCarousel" data-bs-slide="next">
+    <span class="carousel-control-next-icon bg-dark rounded-circle p-2" aria-hidden="true"></span>
+    <span class="visually-hidden">Next</span>
+  </button>
+
+  <!-- <div class="carousel-indicators">
+    <button
+      *ngFor="let testimonial of testimonials; let i = index"
+      type="button"
+      data-bs-target="#testimonialCarousel"
+      [attr.data-bs-slide-to]="i"
+      [class.active]="i === 0"
+      [attr.aria-current]="i === 0 ? 'true' : null"
+      [attr.aria-label]="'Slide ' + (i + 1)"
+    ></button>
+  </div> -->
+</div>
+
+<div class="d-flex justify-content-end mt-2">
+  <button mat-icon-button color="accent" title="Add Review" (click)="toggleForm()">
+    <mat-icon>rate_review</mat-icon>
+    </button>
+</div>
+
+<div *ngIf="showForm" class="d-flex justify-content-center mt-4">
+  <mat-card class="p-4 w-100" style="max-width: 500px;">
+    <form [formGroup]="reviewForm" (ngSubmit)="onSubmit()">
+      <div class="text-center mb-3">
+        <img
+          *ngIf="imagePreview"
+          [src]="imagePreview"
+          class="rounded-circle"
+          style="width: 80px; height: 80px;"
+          alt="Preview"
+        />
+      </div>
+      <div class="mb-3">
+        <label class="d-block mb-1">Upload Image</label>
+        <input
+          type="file"
+          (change)="onImageUpload($event)"
+          accept="image/*"
+          class="form-control"
+        />
+        <mat-error *ngIf="reviewForm.controls['image'].invalid && reviewForm.touched">
+          Image is required
+        </mat-error>
+      </div>
+
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Name</mat-label>
+        <input matInput formControlName="name" />
+        <mat-error *ngIf="reviewForm.controls['name'].hasError('required')">Name is required</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="outline" class="w-100 mb-3">
+        <mat-label>Your Review</mat-label>
+        <textarea matInput rows="5" formControlName="review"></textarea>
+        <mat-error *ngIf="reviewForm.controls['review'].hasError('required')">Review is required</mat-error>
+        <mat-error *ngIf="reviewForm.controls['review'].hasError('minlength')">
+          Minimum 10 characters required
+        </mat-error>
+      </mat-form-field>
+
+      <div class="d-flex justify-content-end">
+        <button mat-raised-button color="primary" type="submit" [disabled]="reviewForm.invalid">
+          Submit Review
+        </button>
+      </div>
+    </form>
+  </mat-card>
+</div>
+<!-- Testimonial End -->
+  <app-footer></app-footer>

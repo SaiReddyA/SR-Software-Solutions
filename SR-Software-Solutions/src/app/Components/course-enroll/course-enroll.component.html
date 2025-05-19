@@ -1,0 +1,141 @@
+ <!-- Header Start -->
+    <div class="container-fluid bg-primary py-5 mb-5 page-header">
+            <div class="container py-5">
+                <div class="row justify-content-center">
+                    <div class="col-lg-10 text-center">
+                        <h1 class="display-3 text-white animated slideInDown">Course</h1>
+                        <nav aria-label="breadcrumb">
+                            <ol class="breadcrumb justify-content-center">
+                                <li class="breadcrumb-item"><a class="text-white cur" (click)="this.navigation.navigateTo('/home')">Home</a></li>
+                                <li class="breadcrumb-item"><a class="text-white cur" (click)="this.navigation.navigateTo('/home/courses')">Course</a></li>
+                                <li class="breadcrumb-item text-white active" aria-current="page">{{course.title}}</li>
+                            </ol>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+    </div>
+    <!-- Header End -->
+
+
+<!-- Course Detail Start -->
+<div class="container-xxl py-2">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-9 wow fadeInUp">
+
+                <div class="container">
+                    <div class="row g-5 justify-content-center">
+
+                        <div class="col-lg-12 wow fadeInUp" data-wow-delay="0.3s">
+                            <h2 class="title">{{ course.title }}</h2>
+                             <p>{{ course.subtitle }}</p>
+                            
+                            <div class="d-flex">
+                            <small><i class="fa fa-star text-warning"></i> {{ course.rating }}</small>
+                            <small class="ms-3"><i class="fa fa-user-graduate"></i> {{ course.learners }} Learners</small>
+                            <small class="ms-3"><i class="fa fa-user"></i> {{ course.level }}</small>
+                            <small class="ms-3"><i class="fa fa-clock me-2"></i> {{ course.duration }}</small>
+                            </div>
+
+                            <div class="image-div text-left mt-3">
+                            <img src="img/profile.jpg" alt="" style="height: 40px; width: 40px; border-radius: 50%;">
+                            <span class="ms-2"><b>Instructor Name</b> - {{ course.instructor }}</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+
+                <div class="container-fluid wow fadeInUp mt-5 tabs">
+                    <!-- Tab panes -->
+                    <div class="tab-content mt-4">
+
+                        <div class="tab-pane container active" id="Overview">
+                            <h2 class="title">About this Course</h2>
+                            <p></p>
+                                {{ course.description }}
+
+                           
+                            <h2 class="mt-4">
+                                Skills you'll gain
+                            </h2>
+                            <span *ngFor="let skill of course.skills" class="badge bg-primary text-white px-4 py-2 m-2">
+                            {{ skill }}
+                            </span>
+                          </div>
+
+                        <div class="container" id="Curriculum">
+
+                            <h2 class="mt-4">
+                                Syllabus
+                            </h2>
+                            <ul>
+                                <li *ngFor="let topic of course.syllabus">{{ topic }}</li>
+                            </ul>
+                        </div>                   
+                    </div>
+
+                </div>
+
+            </div>
+           <div class="col-lg-3 col-md-6 shadow wow fadeInUp" data-wow-delay="0.3s">
+
+                        <div class="image text-center">
+                            <img class="img-fluid mt-2" [src]="course.imageUrl" alt="Course Image" height="200px" width="500px">
+                        </div>
+
+                        <h4 class="mt-2 p-2"></h4>
+
+                        <h4 class="mt-2 p-2">
+                            $ <small><del>{{ course.originalPrice }}</del></small>
+                        </h4>
+
+                        <div class="buttons">
+                            <a href="#" class="text-decoration-none title btn p-3 w-100 mb-2">ENROLL NOW</a>
+                        </div>
+
+                        <div class="list mt-2">
+                            <div class="list1 d-flex justify-content-between pt-2 border-bottom fadeInUp" >
+                            <p><i class="fa fa-clock"></i> Duration</p>
+                            <p>{{ course.duration }}</p>
+                            </div>
+                            <div class="list2 d-flex justify-content-between pt-2 border-bottom fadeInUp">
+                            <p><i class="fa fa-book"></i> Lectures</p>
+                            <p>{{ course.lectures }}</p>
+                            </div>
+                            <div class="list3 d-flex justify-content-between pt-2 border-bottom fadeInUp">
+                            <p><i class="fa fa-bolt"></i> Enrolled</p>
+                            <p>{{ course.enrolled }}</p>
+                            </div>
+                            <div class="list4 d-flex justify-content-between pt-2 border-bottom fadeInUp">
+                            <p><i class="fa fa-google-translate"></i> Language</p>
+                            <p>{{ course.language }}</p>
+                            </div>
+                            <div class="list5 d-flex justify-content-between pt-2 border-bottom fadeInUp">
+                            <p><i class="fa fa-list"></i> Skill Level</p>
+                            <p>{{ course.level }}</p>
+                            </div>
+                            <div class="list6 d-flex justify-content-between pt-2 border-bottom fadeInUp">
+                            <p><i class="fa fa-list"></i> Deadline</p>
+                            <p>{{ course.deadline }}</p>
+                            </div>
+                            <div class="list7 d-flex justify-content-between pt-2 border-bottom fadeInUp">
+                            <p><i class="fa fa-certificate"></i> Certificate</p>
+                            <p>{{ course.certificate }}</p>
+                            </div>
+
+                            <div class="button pt-4 text-center mb-4 fadeInUp">
+                            <i class="fa fa-share"></i><a href="{{shareUrl}}"> Share this Course</a>
+                            </div>
+            </div>
+
+            </div>
+        </div>
+    </div>
+
+</div>
+<!-- Course Detail End -->
+
+ <app-footer></app-footer>
